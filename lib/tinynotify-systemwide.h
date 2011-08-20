@@ -17,4 +17,17 @@
  * notifications system-wide, i.e. on all D-Bus session buses in the system.
  */
 
+/**
+ * notification_send_systemwide
+ * @notification: the notification to send
+ * @session: session to send the notification through
+ *
+ * Send a notification to all notification daemons found.
+ *
+ * Todo: support formatstring args.
+ *
+ * Returns: number of notifications actually sent or 0 if no daemon reached
+ */
+int notification_send_systemwide(Notification notification, NotifySession session);
+
 #endif

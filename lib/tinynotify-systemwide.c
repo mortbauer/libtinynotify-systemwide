@@ -6,3 +6,7 @@
 #include "config.h"
 #include "tinynotify-systemwide.h"
 #include <tinynotify.h>
+
+int notification_send_systemwide(Notification notification, NotifySession session) {
+	return 0;
+}

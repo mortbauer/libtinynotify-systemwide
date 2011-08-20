@@ -1,3 +1,4 @@
 <SECTION>
 <FILE>systemwide</FILE>
+notification_send_systemwide
 </SECTION>
