@@ -17,8 +17,30 @@
  * notifications system-wide, i.e. on all D-Bus session buses in the system.
  */
 
+/**
+ * NOTIFY_ERROR_SYSCALL_FAILED
+ *
+ notification_send_systemwide* An error raised when one of the syscalls required for the operation fails.
+ */
 extern const NotifyError NOTIFY_ERROR_SYSCALL_FAILED;
+/**
+ * NOTIFY_ERROR_UIDS_COMPROMISED
+ *
+ * An error raised when setresuid() fails to restore the original caller UID.
+ *
+ * This means that the application has lost its original UID and should
+ * terminate ASAP.
+ */
 extern const NotifyError NOTIFY_ERROR_UIDS_COMPROMISED;
+/**
+ * NOTIFY_ERROR_NO_BUS_FOUND
+ *
+ * An error returned by notification_send_systemwide() when it was unable
+ * to find a single D-Bus session bus in procfs.
+ *
+ * Please note that this as well covers a case when the session bus is not
+ * visible to user in procfs due to limited privileges.
+ */
 extern const NotifyError NOTIFY_ERROR_NO_BUS_FOUND;
 
 /**
@@ -26,7 +48,7 @@ extern const NotifyError NOTIFY_ERROR_NO_BUS_FOUND;
  * @notification: the notification to send
  * @session: session to send the notification through
  *
- * Send a notification to all notification daemons found.
+ * Send a notification to all notification daemons found (in procfs).
  *
  * Todo: support formatstring args.
  *
