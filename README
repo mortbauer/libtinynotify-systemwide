@@ -5,10 +5,13 @@
 Introduction
 ------------
 
-libtinynotify is an alternate implementation of the Desktop Notification
-Specification. It aims to be simple and lightweight and thus suitable for a few
-specific areas where [libnotify] [1] just doesn't fit.
+libtinynotify-systemwide provides a system-wide notifications module
+for [libtinynotify][1]. It is based on old [sw-notify-send][2] project.
 
-[1]:http://www.galago-project.org/
+All it does is looking over procfs (/proc) for all D-Bus session buses,
+and trying to send the notification to every one of them.
+
+[1]:https://github.com/mgorny/libtinynotify/
+[2]:https://github.com/mgorny/sw-notify-send/
 
 <!-- vim:se syn=markdown :-->
