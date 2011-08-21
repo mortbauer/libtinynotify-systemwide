@@ -22,6 +22,13 @@ AC_CHECK_LIB([proc], [readproc],,
 AC_CHECK_FUNCS([chroot])
 AC_CHECK_HEADERS([sysexits.h])
 
+AC_ARG_ENABLE([debug],
+	[AS_HELP_STRING([--disable-debug],
+		[Disable debugging asserts])])
+AS_IF([test x"$enable_debug" = x"no"], [
+	AC_DEFINE([NDEBUG], [1], [Set this to disable debugging asserts])
+])
+
 AC_CONFIG_HEADER([config.h])
 AC_CONFIG_FILES([Makefile doc/Makefile libtinynotify-systemwide.pc])
 AC_OUTPUT
