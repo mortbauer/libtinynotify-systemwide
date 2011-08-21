@@ -13,14 +13,10 @@ LT_INIT([disable-static])
 GTK_DOC_CHECK([1.15])
 
 PKG_CHECK_MODULES([LIBTINYNOTIFY], [libtinynotify])
-PKG_CHECK_MODULES([LIBTINYNOTIFY_CLI], [libtinynotify-cli])
-AC_CHECK_FUNCS([setresuid strdup],,
+AC_CHECK_FUNCS([setresuid],,
 	[AC_MSG_ERROR([One of required system library functions was not found!])])
 AC_CHECK_LIB([proc], [readproc],,
 	[AC_MSG_ERROR([Error: required library proc not found! Please install procps.])])
-
-AC_CHECK_FUNCS([chroot])
-AC_CHECK_HEADERS([sysexits.h])
 
 AC_ARG_ENABLE([debug],
 	[AS_HELP_STRING([--disable-debug],
