@@ -16,6 +16,10 @@
  * The libtinynotify-systemwide helper library provides the routines to send
  * notifications system-wide, i.e. on all D-Bus session buses in the system.
  *
+ * Using it as basically as simple as adding the necessary include,
+ * and replacing notification_send() in the code with
+ * notification_send_systemwide().
+ *
  * Although libtinynotify-cli links with the actual libtinynotify itself,
  * and uses its header, one should refer to the libtinynotify pkg-config
  * package explicitly and include its header anyway.
