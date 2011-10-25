@@ -10,10 +10,13 @@ AC_PROG_CC
 AM_PROG_CC_C_O
 AC_USE_SYSTEM_EXTENSIONS
 LT_INIT([disable-static])
+GTK_DOC_CHECK([1.15])
 
 PKG_CHECK_MODULES([LIBTINYNOTIFY], [libtinynotify])
 AC_CHECK_FUNCS([setresuid],,
 	[AC_MSG_ERROR([One of required system library functions was not found!])])
+AC_SEARCH_LIBS([proc], [readproc],,
+	[AC_MSG_ERROR([Error: required library proc not found! Please install procps.])])
 
 AC_ARG_ENABLE([debug],
 	[AS_HELP_STRING([--disable-debug],
